@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Registration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css"> -->
+    <!-- bootstrap css cdn -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600&display=swap" rel="stylesheet">
+    <!-- <script src="main.js"></script> -->
+    <style type="text/css">
+        .card {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            margin: 10px;
+        }
+
+
+        /* On mouse-over, add a deeper shadow */
+        .card:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .cardOne {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            margin: 10px;
+            width: 50%;
+        }
+
+        .cardOne:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .cardRight {
+            /* Add shadows to create the "card" effect */
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+            margin: 10px;
+            width: 30%;
+            float: right;
+            position: relative;
+            top: -361px;
+            right: 70px;
+        }
+
+        .cardRight:hover {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        /* Add some padding inside the card container */
+        .container {
+            padding: 7px 16px;
+            margin: 5px;
+        }
+
+        .next {
+            text-align: right;
+            padding: 30px;
+        }
+
+        h1 {
+            margin: 7px;
+            font-size: 35px;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        h2 {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        h3 {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        #undercardEdu {
+            position: relative;
+            float: right;
+            right: -244px;
+            top: -130px;
+            font-size: 20px;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-weight: 200;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registration</h1>
+    <br>
+
+
+    <div class="progress">
+        <div class="determinate" style="width: 5%"></div>
+    </div>
+
+    <div class="cardOne">
+        <div class="container">
+            <div id="StepOneCard">
+                <h2>Step One:</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="inputUser">Create Username:</label>
+                        <input type="username" class="form-control" id="inputUser" placeholder="johnSmith1">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPass">Password</label>
+                        <input type="password" class="form-control" id="inputPass" placeholder="********">
+                    </div>
+                    <!-- <div class="form-group">
+                    <label for="verifyPass">Verify Password</label>
+                    <input type="password" class="form-control" id="verifyPass" placeholder="********">
+                </div> -->
+                    <!-- <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> -->
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="inputMail" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="cardRight">
+        <div class="container">
+            <div id="EduCard">
+                <h3>[Professional]</h3>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputName">
+                            <h6><strong>Latest degree earned</strong></h6>
+                        </label>
+                        <input type="name" class="form-control" id="inputName" placeholder="" class="form-control"
+                            required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputName">
+                            <h6><strong>Field of study</strong></h6>
+                        </label>
+                        <input type="name" class="form-control" id="inputField" placeholder="" class="form-control"
+                            required>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail">
+                            <h6><strong>Name of academic institution</strong></h6>
+                        </label>
+                        <input type="name" class="form-control" id="inputEmail" placeholder="" class="form-control"
+                            required>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h3 id=undercardEdu>This is optional but recommended!</h3>
+
+    <br>
+
+    <br>
+    <div class="card">
+        <div class="container">
+            <div id="StepTwoCard">
+                <h2>Step Two:</h2>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                    </div>
+                    <!-- <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputPic" aria-describedby="inputGroupFileAddon01">
+            <label class="custom-file-label" for="inputGroupFile01">Upload a Profile Picture</label>
+        </div> -->
+                </div>
+                <div class="input-group">
+                    <!-- <div class="input-group-prepend">
+                        <span class="input-group-text">First and last name</span>
+                    </div> -->
+                    <label for="inputName">First Name</label>
+                    <input type="text" aria-label="First name" class="form-control" id="inputName" placeholder="John">
+                    <label for="inputName">Last Name</label>
+                    <input type="text" aria-label="Last name" class="form-control" id="inputName" placeholder="Smith">
+                </div>
+                <br>
+                <div class="second-group">
+                    <label for="inputUser">Enter your location:</label>
+                    <input type="username" class="form-control" id="inputLoc" placeholder="San Francisco, CA">
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="next">
+        <button type="submit" class="btn btn-primary" id="submit">Next</button>
+    </div>
+    <br>
+    <br>
+
+
+    <!-- Materialize CDN-->
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- jquery cdn -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- bootstrap cdn -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+
+    <!-- External js file for capture -->
+    <!-- <script src="currentUser.js" type="text/javascript"></script> -->
+    <script src="currUser.js" type="module"></script>
+
+    <script type="text/javascript">
+        // values
+        var username = "";
+        var password = "";
+        var email = "";
+        // var profilePic = uploadthepicgoeshere;
+        var firstAndLast = "";
+        var age = "";
+        // var location = "";
+
+
+
+
+        $("#submit").on("click", function (event) {
+            // capturing input from forms
+            console.log("button works");
+            debugger;
+            username = $("#inputUser").val().trim();
+            password = $("#inputPass").val().trim();
+            email = $("#inputMail").val().trim();
+            firstAndLast = $("#inputName").val().trim();
+            // age = $("#inputAge").val().trim();
+            // location = $("#inputLoc").val().trim();
+
+            // display user inputs
+            console.log(username);
+            console.log(password);
+            console.log(email);
+            console.log(firstAndLast);
+            // console.log(age);
+            // console.log(location);
+
+            // console.log(degree);
+            // console.log(field);
+            // console.log(school);
+
+
+            // create an object of the current user js file and append the (username, email etc) into the current user array
+
+
+            // export {password};
+
+            currUser[0].username = username;
+            currUser[0].password = password;
+            currUser[0].email = email;
+            currUser[0].firstAndLast = firstAndLast;
+            // currUser[0].coolThing = 
+            // currUser[0].phrase =
+            // currUser[0].ques1 =
+            // currUser[0].ques2 =
+            // currUser[0].ques3 =
+            // currUser[0].ques4 =
+            // currUser[0].ques5 =
+            console.log(currUser);
+            permCurrUser = currUser;
+
+            export {
+                permCurrUser
+            };
+
+
+            // adds a new row in sheetsu google sheets database
+            function successFunc(data) {
+                console.log(data);
+            }
+
+            // Adds single row to spreadsheet
+            var url = "https://sheetsu.com/apis/v1.0/020b2c0f";
+            var params = {
+                id: 7,
+                name: 'Glenn',
+                score: 96
+            };
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: params,
+                success: successFunc
+            });
+
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>

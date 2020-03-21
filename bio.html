@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>cliks|bio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="Fonts/webfontkit-20191203-161222/stylesheet.css">
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <script src="main.js"></script> -->
+    <style>
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: darkgrey;
+        }
+
+        #grid {
+            display: grid;
+            height: 100vh;
+            grid-template-areas: "header contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront contentFront";
+            grid-gap: 1px;
+        }
+
+        #header {
+            grid-area: header;
+            background-color: white;
+        }
+
+        #contentFront {
+            grid-area: contentFront;
+            background-color: white;
+        }
+
+        #sideBar {
+            grid-area: sideBar;
+            background-color: white;
+        }
+
+        #bigHr {
+            height: 10px;
+            background-color: darkgrey;
+        }
+
+        #banner {
+            padding: 0px;
+            margin: 9px;
+        }
+
+        h1 {
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .profilePic {
+            margin: 5px;
+            float: left;
+            position: absolute;
+        }
+
+        #typePost {
+            /* float: right; */
+            /* position: absolute; */
+        }
+
+        #userPost {
+            margin: 5px;
+            top: 5px;
+            width: 300px;
+            position: relative;
+            left: 65px;
+        }
+
+        #postItCont {
+            margin: 10px;
+            text-align: right;
+            position: relative;
+            right: 20px;
+            /* height: 200px; */
+        }
+
+        #searchContainer {}
+
+        #logoHome {
+            padding: 20px;
+        }
+
+        #mainSearch {
+            background-color: white;
+            border-color: blue;
+            color: blue;
+        }
+
+        /* #searchNavBar {
+        background-color: white;
+        color: white;
+      }
+      #search{
+        background-color: white;
+      } */
+        /* 
+      .navbar-custom{
+        background-color: white !important;
+        color:white;
+      } */
+
+        #samplePostContainer {
+            height: 265px;
+            width: 598px;
+            background-color: white;
+            padding: 15px;
+            margin: 15px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            transition: 0.3s;
+        }
+
+        .profile {
+            height: 49px;
+            width: 49px;
+        }
+
+        #upPicIcon {
+            height: 38px;
+            width: 38px;
+        }
+
+        #upGIFIcon {
+            height: 38px;
+            width: 50px;
+        }
+
+        #uploadPicContain {
+            position: absolute;
+            float: left;
+            left: 60px;
+            top: 20px;
+        }
+
+        #gifContain {
+            position: absolute;
+            float: left;
+            left: 140px;
+            top: 20px;
+        }
+
+        .badge-pill {
+            float: right;
+            position: relative;
+            bottom: 39px;
+            right: 48px;
+            background-color: red;
+        }
+
+        .dropdown-menu {
+            display: none;
+        }
+
+        #mainContent {
+            position: relative;
+            height: 100%;
+            background-color: white;
+        }
+
+        .profile {
+            position: absolute;
+            /* left: -10px; */
+        }
+
+        #userNameOnPost {
+            position: relative;
+            left: 75px;
+            top: 7px;
+        }
+
+        #postOnPost {
+            position: relative;
+            top: 7px;
+        }
+
+        .thumbs {
+            height: 45px;
+            width: 35px;
+        }
+
+        #thumbsUp {
+            float: left;
+        }
+
+        #thumbsDown {
+            float: right;
+        }
+
+        #likes {
+            float: right;
+        }
+
+        #dislikes {
+            float: right;
+        }
+
+        #logoPic {
+            height: 40px;
+            width: 140px;
+        }
+
+        .scale-up-center {
+            -webkit-animation: scale-up-center 0.25s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+            animation: scale-up-center 0.25s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+            height: 75px;
+            width: 75px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .bannerSpace {
+            border-style: solid;
+            width: 100%;
+            height: 20%;
+            position: relative;
+            background-color: gray;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .profilePicSpace {
+            border-style: solid;
+            width: 20%;
+            height: 13%;
+            position: relative;
+            top: -25px;
+            background-color: white;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .userNameSpace {
+            border-style: solid;
+        }
+
+        .bioSpace {
+            border-style: solid;
+            text-align: center;
+        }
+
+        .recSpace {
+            width: 100%;
+            height: 60%;
+        }
+
+        #recHead {
+            /* text-decoration: underline; */
+            font-family: euclid_circular_b_trialmedium;
+            opacity: 0.97;
+            margin: 8px;
+        }
+
+        .recBox {
+            border-style: solid;
+            width: 100%;
+            height: 30%;
+        }
+
+        /* 
+        #banner {
+            max-width: 100%;
+            max-height: 100%;
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="grid">
+        <div id="header">
+            <div id="headerContent">
+                <div id="logoHome">
+                    <h2>cliks</h1>
+                </div>
+                <div id="nav">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <h1>Home</h1>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <h1>Explore</h1>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <h1>Notifications</h1>
+                            </a><span class="badge badge-primary badge-pill">0</span>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <h1>Messages</h1>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <h1>Profile</h1>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">More</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Separated link</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="compose"></div>
+            </div>
+        </div>
+        <div id="contentFront">
+            <div id="banner">
+                <h1 id="bannerText">Social Circle</h1>
+            </div>
+            <hr />
+            <!-- <hr id="bigHr" /> -->
+            <div id="mainContent">
+                <div class="bannerSpace">
+                    banner img goes here
+                    <!-- user's banner img should append to here -->
+                </div>
+                <div class="profilePicSpace">
+                    profile pic
+                    goes here
+                    <!-- Profile pic should append here -->
+                </div>
+                <div class="userNameSpace">
+                    <!-- Username should append here -->
+                </div>
+                <div class="bioSpace">
+                    <!-- bio should append here -->
+                </div>
+                <hr>
+                <div class="recSpace">
+                    <h4 id="recHead">recommendations:</h4>
+                    <div class="recBox">
+                        recommnedations go here
+                        <!-- append recommended activities and goals here -->
+                    </div>
+                </div>
+
+            </div>
+
+            <script type="text/javascript" src="user.js"></script>
+            <script type="text/javascript" src="bioloader.js"></script>
+            <script type="text/javascript">
+                var newData = [];
+                // Gets from the sheetsu google sheets database
+                function successFunc(data) {
+                    console.log(data);
+                    for (i in data[0]) {
+                        console.log(data[0][i]);
+                        newData.push(data[0][i]);
+                    }
+                    console.log(newData)
+                    console.log("This is the username:" + newData[1]);
+                    var imageUrl1 = newData[0];
+                    var imageUrl2 = newData[0];
+                    // layout of the users banner pic
+                    //  replace parenthasis url with the users banner link
+                    $(".bannerSpace").css('background-image', 'url(' + imageUrl1 + ')');
+                    $(".profilePicSpace").css('background-image', 'url(' + imageUrl2 + ')');
+
+                    $(".bioSpace").append(newData[7]);
+                    $(".userNameSpace").append(newData[1]);
+                }
+
+                // Read whole spreadsheet
+                var url = "https://sheetsu.com/apis/v1.0su/a166f54c226d";
+                $.ajax({
+                    url: url,
+                    success: successFunc,
+                    dataType: 'json',
+                });
+
+                parseJSON(data);
+                console.log("This is the username:" + newData[1].username);
+
+                // var userStuff = new JSONArray(data);
+
+                // successFunc(data);
+                // var imageUrl1 = "./shutterstock_1315527143.jpg";
+            </script>
+
+</body>
+
+</html>
